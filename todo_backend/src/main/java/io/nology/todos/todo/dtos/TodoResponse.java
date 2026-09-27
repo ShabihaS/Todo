@@ -1,5 +1,6 @@
 package io.nology.todos.todo.dtos;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.nology.todos.category.dtos.CategoryResponse;
 import io.nology.todos.todo.entities.Todo;
 
@@ -38,6 +39,7 @@ public class TodoResponse {
     return task;
   }
 
+  @JsonProperty("isArchived")
   public boolean isArchived() {
     return isArchived;
   }

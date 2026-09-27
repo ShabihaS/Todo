@@ -54,15 +54,17 @@ public class CategoryController {
     return ResponseEntity.ok(CategoryResponse.of(result));
   }
 
-  @PatchMapping("/{id}")
-  public ResponseEntity<CategoryResponse> updateCategoryById(
-      @PathVariable Long id,
-      @Valid @RequestBody UpdateCategoryRequest data) {
+ @PutMapping("/{id}")
+public ResponseEntity<CategoryResponse> updateCategoryById(
+    @PathVariable Long id,
+    @Valid @RequestBody UpdateCategoryRequest data) {
 
-    Category result = this.categoryService.updateById(id, data)
-        .orElseThrow(() -> new NotFoundException("Could not find category with id " + id));
-    return ResponseEntity.ok(CategoryResponse.of(result));
-  }
+  Category result = this.categoryService.updateById(id, data)
+      .orElseThrow(() -> new NotFoundException(
+          "Could not find category with id " + id));
+
+  return ResponseEntity.ok(CategoryResponse.of(result));
+}
 
   @DeleteMapping("/{id}")
   public ResponseEntity<Void> deleteCategoryById(
