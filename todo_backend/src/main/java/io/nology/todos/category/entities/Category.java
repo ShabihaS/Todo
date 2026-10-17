@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Category {
   @Id
-  @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String name;
 
